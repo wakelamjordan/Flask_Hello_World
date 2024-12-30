@@ -32,10 +32,10 @@ jobs:
               rm -rf ./$last_directory
             else
               echo "Le répertoire flask de destination sur votre serveur n'existe pas"
-              mkdir flask
-              rsync -r ./$last_directory/ ./flask
-              rm -rf ./$last_directory
-              # exit 1
+              # mkdir flask
+              # rsync -r ./$last_directory/ ./flask
+              # rm -rf ./$last_directory
+              exit 1
             fi
   Restart:
     needs: Copy
