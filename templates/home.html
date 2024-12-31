@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home Flask</title>
+    <script defer>
+
+        let form = document.querySelector('form');
+
+        form.addEventListener('submit', function (event) {
+            event.preventDefault();
+
+            let value_user_carre = document.getElementById('inputValeur').value;
+            let url = '/calcul_carre/' + value_user_carre;
+
+            window.location.href = url;
+
+            return;
+        });
+
+    </script>
+</head>
+
+<body>
+
+    <h2>Bonjour tout le monde !</h2>
+    <p>Pour accéder à vos exerices cliquez <a href='./flask/exercices/'>Ici</a></p>
+    <p><a href='./flask/contact/'>Contact</a></p>
+    <p>
+    <form>
+        <input type='number' name='inputValeur' id='inputValeur' required>
+        <input type='submit' value='Calculer carré'>
+    </form>
+    </p>
+</body>
+
+</html>
