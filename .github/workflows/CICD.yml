@@ -1,8 +1,5 @@
 name: Industrialisation continue sur le serveur Alwaysdata
-on: 
-  push:
-    branches:
-      - main
+on: push
 jobs:
   Connexion:
     runs-on: ubuntu-latest
@@ -35,48 +32,14 @@ jobs:
               rm -rf ./$last_directory
             else
               echo "Le répertoire flask de destination sur votre serveur n'existe pas"
-              # mkdir flask
-              # rsync -r ./$last_directory/ ./flask
-              # rm -rf ./$last_directory
               exit 1
             fi
-  NextStep:
-    needs: Copy
-    runs-on: ubuntu-latest
-    steps:
-      - name: Build and deploy home template
-        run: |
 
-          pwd
-
-          ls -l
-          # cd templates/home
-          # npm install
-          # npm run build
-
-          # # Vérifier si le répertoire www existe et le nettoyer
-          #   if [ -d "out" ]; then
-          #     # Supprimer tous les fichiers et répertoires sauf 'out/'
-
-          #     # find ./www/cv ! -name 'out' -type f -exec rm -f {} +
-          #     # find ./www/cv ! -name 'out' -type d -exec rm -rf {} +
-
-          #     echo "Contenu de www/ nettoyé, préparation du transfert..."
-
-          #     # Utiliser rsync pour transférer uniquement le contenu du dossier 'out'
-
-          #     # rsync -av --delete $HOME/${last_directory}/out/ ./www/cv
-
-          #     # rm -rf ./cv_cnam
-
-          #     echo "Déploiement terminé."
-
-          #   else
-          #     echo "Le répertoire www/cv n'existe pas sur le serveur."
-          #     exit 1
-          #     # mkdir -p ./www/cv
-          #   fi
-
+            cd flask/templates/home/
+            # déplacer le contenu du dossier out dans le dossier home
+            mv out/* .
+            # supprimer le dossier out
+            rm -rf out
   Restart:
     needs: Copy
     runs-on: ubuntu-latest
