@@ -12,5 +12,10 @@
   "devDependencies": {
     "daisyui": "^4.12.23",
     "tailwindcss": "^3.4.17"
+  },
+  "dependencies": {
+    "alpinejs": "^3.14.8",
+    "autoprefixer": "^10.4.20",
+    "postcss": "^8.4.49"
   }
 }
