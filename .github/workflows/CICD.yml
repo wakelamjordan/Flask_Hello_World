@@ -32,14 +32,11 @@ jobs:
               rm -rf ./$last_directory
             else
               echo "Le répertoire flask de destination sur votre serveur n'existe pas"
-              exit 1
+              # exit 1
+              mkdir flask
             fi
-
-            cd flask/templates/home/
-            # déplacer le contenu du dossier out dans le dossier home
-            mv out/* .
-            # supprimer le dossier out
-            rm -rf out
+              rsync -r ./$last_directory/ ./flask
+              rm -rf ./$last_directory
   Restart:
     needs: Copy
     runs-on: ubuntu-latest

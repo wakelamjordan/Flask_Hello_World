@@ -1,13 +1,13 @@
 from flask import Flask, url_for
 from flask import render_template
-from flask import json
+from flask import json, jsonify
 import sqlite3
 
 app = Flask(__name__)
 
 # Définir un préfixe global pour la mise en production
-# PREFIX = '/flask'
-PREFIX = ''
+PREFIX = '/flask'
+# PREFIX = ''
 
 @app.context_processor
 def inject_prefix():
@@ -15,8 +15,25 @@ def inject_prefix():
     return {'prefix': PREFIX}
 
 @app.route('/')
-def hello_world():
-    return render_template('home.html')
+def doc():
+    doc_data = {
+        "title": "Documentation de l'API",
+        "endpoints": [
+            {
+                "url": url_for('MaPremiereAPI', _external=True),
+                "description": "Renvoie un message de bienvenue"
+            },
+            {
+                "url": url_for('carre', val_user=5, _external=True),
+                "description": "Calcule le carré d'un nombre"
+            },
+            {
+                "url": url_for('somme', valeur1=5, valeur2=10, _external=True),
+                "description": "Calcule la somme de deux nombres"
+            }
+        ]
+    }
+    return jsonify(doc_data)
 
 @app.route('/exercices/')
 def exercices():
