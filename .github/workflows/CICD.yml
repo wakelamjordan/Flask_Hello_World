@@ -48,32 +48,34 @@ jobs:
         run: |
 
           pwd
-          cd templates/home
-          npm install
-          npm run build
 
-          # Vérifier si le répertoire www existe et le nettoyer
-            if [ -d "out" ]; then
-              # Supprimer tous les fichiers et répertoires sauf 'out/'
+          ls -l
+          # cd templates/home
+          # npm install
+          # npm run build
 
-              # find ./www/cv ! -name 'out' -type f -exec rm -f {} +
-              # find ./www/cv ! -name 'out' -type d -exec rm -rf {} +
+          # # Vérifier si le répertoire www existe et le nettoyer
+          #   if [ -d "out" ]; then
+          #     # Supprimer tous les fichiers et répertoires sauf 'out/'
 
-              echo "Contenu de www/ nettoyé, préparation du transfert..."
+          #     # find ./www/cv ! -name 'out' -type f -exec rm -f {} +
+          #     # find ./www/cv ! -name 'out' -type d -exec rm -rf {} +
 
-              # Utiliser rsync pour transférer uniquement le contenu du dossier 'out'
+          #     echo "Contenu de www/ nettoyé, préparation du transfert..."
 
-              # rsync -av --delete $HOME/${last_directory}/out/ ./www/cv
+          #     # Utiliser rsync pour transférer uniquement le contenu du dossier 'out'
 
-              # rm -rf ./cv_cnam
+          #     # rsync -av --delete $HOME/${last_directory}/out/ ./www/cv
 
-              echo "Déploiement terminé."
+          #     # rm -rf ./cv_cnam
 
-            else
-              echo "Le répertoire www/cv n'existe pas sur le serveur."
-              exit 1
-              # mkdir -p ./www/cv
-            fi
+          #     echo "Déploiement terminé."
+
+          #   else
+          #     echo "Le répertoire www/cv n'existe pas sur le serveur."
+          #     exit 1
+          #     # mkdir -p ./www/cv
+          #   fi
 
   Restart:
     needs: Copy
