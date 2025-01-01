@@ -17,7 +17,7 @@ def inject_prefix():
 @app.route('/')
 def doc():
     doc_data = {
-        "title": "Documentation de l'API",
+        "title": "ddDocumentation de l'API",
         "endpoints": [
             {
                 "url": url_for('MaPremiereAPI', _external=True),
