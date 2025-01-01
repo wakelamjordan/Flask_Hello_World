@@ -6,8 +6,8 @@ import sqlite3
 app = Flask(__name__)
 
 # Définir un préfixe global pour la mise en production
-PREFIX = '/flask'
-# PREFIX = ''
+# PREFIX = '/flask'
+PREFIX = ''
 
 @app.context_processor
 def inject_prefix():
