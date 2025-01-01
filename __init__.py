@@ -5,6 +5,15 @@ import sqlite3
 
 app = Flask(__name__)
 
+# Définir un préfixe global pour la mise en production
+PREFIX = '/flask'
+# PREFIX = ''
+
+@app.context_processor
+def inject_prefix():
+    # Rendre le préfixe accessible dans tous les templates
+    return {'prefix': PREFIX}
+
 @app.route('/')
 def hello_world():
     return render_template('home.html')
