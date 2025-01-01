@@ -19,10 +19,10 @@ def doc():
     doc_data = {
         "title": "ddDocumentation de l'API",
         "endpoints": [
-            {
-                "url": url_for('MaPremiereAPI', _external=True),
-                "description": "Renvoie un message de bienvenue"
-            },
+            # {
+            #     "url": url_for('MaPremiereAPI', _external=True),
+            #     "description": "Renvoie un message de bienvenue"
+            # },
             {
                 "url": url_for('carre', val_user=5, _external=True),
                 "description": "Calcule le carré d'un nombre"
@@ -39,17 +39,26 @@ def doc():
 def exercices():
     return render_template('exercices.html')
 
-@app.route('/contact/')
-def MaPremiereAPI():
-    return render_template('contact.html')
+# @app.route('/contact/')
+# def MaPremiereAPI():
+#     return render_template('contact.html')
 
 @app.route('/calcul_carre/<int:val_user>')
 def carre(val_user):
-    return "<h2>Le carré de votre valeur est : </h2>" + str(val_user * val_user)
+    data_carre = {
+        "valeur": val_user,
+        "carre": val_user * val_user
+    }
+    return jsonify(data_carre)
 
 @app.route('/calcul_somme/<int:valeur1>/<int:valeur2>')
 def somme(valeur1, valeur2):
-    return "<h2>La somme de vos valeurs est : </h2>" + str(valeur1 + valeur2)
+    data_somme = {
+        "valeur1": valeur1,
+        "valeur2": valeur2,
+        "somme": valeur1 + valeur2
+    }
+    return jsonify(data_somme)
 
 # @app.route('/impaire/<int:valeur>')
 # def impaire(valeur):
