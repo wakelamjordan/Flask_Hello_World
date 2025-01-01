@@ -48,32 +48,32 @@ jobs:
         run: |
 
           pwd
-          # cd $HOME/www/flask/templates/home
-          # npm install
-          # npm run build
+          cd templates/home
+          npm install
+          npm run build
 
-          # # Vérifier si le répertoire www existe et le nettoyer
-          #   if [ -d "./www/out" ]; then
-          #     # Supprimer tous les fichiers et répertoires sauf 'out/'
+          # Vérifier si le répertoire www existe et le nettoyer
+            if [ -d "out" ]; then
+              # Supprimer tous les fichiers et répertoires sauf 'out/'
 
-          #     # find ./www/cv ! -name 'out' -type f -exec rm -f {} +
-          #     # find ./www/cv ! -name 'out' -type d -exec rm -rf {} +
+              # find ./www/cv ! -name 'out' -type f -exec rm -f {} +
+              # find ./www/cv ! -name 'out' -type d -exec rm -rf {} +
 
-          #     echo "Contenu de www/ nettoyé, préparation du transfert..."
+              echo "Contenu de www/ nettoyé, préparation du transfert..."
 
-          #     # Utiliser rsync pour transférer uniquement le contenu du dossier 'out'
+              # Utiliser rsync pour transférer uniquement le contenu du dossier 'out'
 
-          #     # rsync -av --delete $HOME/${last_directory}/out/ ./www/cv
+              # rsync -av --delete $HOME/${last_directory}/out/ ./www/cv
 
-          #     # rm -rf ./cv_cnam
+              # rm -rf ./cv_cnam
 
-          #     echo "Déploiement terminé."
+              echo "Déploiement terminé."
 
-          #   else
-          #     echo "Le répertoire www/cv n'existe pas sur le serveur."
-          #     exit 1
-          #     # mkdir -p ./www/cv
-          #   fi
+            else
+              echo "Le répertoire www/cv n'existe pas sur le serveur."
+              exit 1
+              # mkdir -p ./www/cv
+            fi
 
   Restart:
     needs: Copy
