@@ -20,19 +20,20 @@ def doc():
     "title": "Documentation de l'API",
     "endpoints": [
         {
-        "url": "/",
+        "url": "https://jordanwakelam.alwaysdata.net/flask/",
         "method": "GET",
         "description": "Affiche la documentation de l'API en format JSON."
         },
+        # {
+        # "url": "/exercices/",
+        # "method": "GET",
+        # "description": "Affiche la page HTML des exercices (template Flask)."
+        # },
         {
-        "url": "/exercices/",
-        "method": "GET",
-        "description": "Affiche la page HTML des exercices (template Flask)."
-        },
-        {
-        "url": "/calcul_carre/<val_user>",
+        "url": "https://jordanwakelam.alwaysdata.net/flask/calcul_carre/",
         "method": "GET",
         "parameters": {
+            "example": "5",
             "val_user": {
             "type": "int",
             "description": "Nombre entier pour lequel on veut calculer le carré."
@@ -41,9 +42,10 @@ def doc():
         "description": "Calcule le carré d'un nombre entier fourni dans l'URL."
         },
         {
-        "url": "/calcul_somme/",
+        "url": "https://jordanwakelam.alwaysdata.net/flask/calcul_somme/",
         "method": "GET",
         "parameters": {
+            "example": "?valeur1=1&valeur2=2&valeur3=3",
             "query_params": {
             "type": "list",
             "description": "Liste de nombres entiers passés en paramètres GET pour calculer leur somme."
@@ -52,9 +54,10 @@ def doc():
         "description": "Calcule la somme des nombres passés en paramètres GET."
         },
         {
-        "url": "/impaire/<valeur>",
+        "url": "https://jordanwakelam.alwaysdata.net/flask/impaire/",
         "method": "GET",
         "parameters": {
+            "example": "5",
             "valeur": {
             "type": "int",
             "description": "Nombre entier à vérifier s'il est pair ou impair."
@@ -63,9 +66,10 @@ def doc():
         "description": "Détermine si un nombre entier est pair ou impair."
         },
         {
-        "url": "/valeur_max/",
+        "url": "https://jordanwakelam.alwaysdata.net/flask/valeur_max/",
         "method": "GET",
         "parameters": {
+            "example": "?valeur1=1&valeur2=2&valeur3=3",
             "query_params": {
             "type": "list",
             "description": "Liste de nombres entiers passés en paramètres GET pour déterminer le maximum."
